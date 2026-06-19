@@ -74,6 +74,7 @@ export interface TTRPGState {
   quickRollAdv: () => void;
   quickRollDis: () => void;
   quickRollPool: () => void; // 4d6kh3 example
+  quickRollStat5: () => void; // 5d6kh3 example
   clearDiceHistory: () => void;
 
   generateNPC: (isVillain?: boolean) => void;
@@ -324,6 +325,21 @@ export const useTTRPGStore = create<TTRPGState>()(
         set((state) => ({
           diceHistory: [
             { time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), expr: '4d6kh3', total, detail },
+            ...state.diceHistory,
+          ].slice(0, 12),
+        }));
+      },
+
+      quickRollStat5: () => {
+        // 5d6kh3 - roll 5d6, keep highest 3
+        const rolls = Array.from({ length: 5 }, () => Math.floor(Math.random() * 6) + 1).sort((a, b) => b - a);
+        const kept = rolls.slice(0, 3);
+        const total = kept.reduce((a, b) => a + b, 0);
+        const detail = `rolled ${rolls.join(',')} → keep ${kept.join('+')}`;
+
+        set((state) => ({
+          diceHistory: [
+            { time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), expr: '5d6kh3', total, detail },
             ...state.diceHistory,
           ].slice(0, 12),
         }));

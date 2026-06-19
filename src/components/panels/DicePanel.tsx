@@ -20,6 +20,7 @@ export default function DicePanel() {
     quickRollAdv,
     quickRollDis,
     quickRollPool,
+    quickRollStat5,
     clearDiceHistory,
     language,
   } = useTTRPGStore();
@@ -58,6 +59,9 @@ export default function DicePanel() {
         </MagneticButton>
         <MagneticButton onClick={quickRollPool} className="col-span-4 sm:col-span-2 px-3 py-3 text-xs border border-orange-800 text-orange-400 rounded-2xl">
           4d6kh3 (stat)
+        </MagneticButton>
+        <MagneticButton onClick={quickRollStat5} className="col-span-4 sm:col-span-2 px-3 py-3 text-xs border border-orange-800 text-orange-400 rounded-2xl">
+          5d6kh3 (stat)
         </MagneticButton>
       </div>
 
