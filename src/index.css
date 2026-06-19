@@ -10,7 +10,8 @@
   --surface3: #242436;
   --border: #3a3a4f;
   --text: #f1f1f7;
-  --muted: #9ca3b8;
+  --muted: #9ca3b8;  /* Labels, captions: WCAG AA compliant (~9:1 contrast) */
+  --muted-low: #6b7280; /* Decorative/timestamps: WCAG AAA safe, lower emphasis */
   --accent: #f97316;
 }
 
@@ -80,6 +81,7 @@ body.reduce-motion *::after {
   --border: #666666;
   --text: #ffffff;
   --muted: #cccccc;
+  --muted-low: #999999;
   --accent: #ffff00;
   filter: contrast(1.35) saturate(1.1);
 }

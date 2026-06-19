@@ -24,7 +24,7 @@ export default function Modal({ isOpen, onClose, title, children, className = ''
           <h2 className="text-xl font-semibold">{title}</h2>
           <button 
             onClick={onClose}
-            className="text-2xl leading-none text-[#9ca3b8] hover:text-white"
+            className="text-2xl leading-none text-muted hover:text-fg"
           >
             &times;
           </button>

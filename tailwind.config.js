@@ -17,6 +17,7 @@ export default {
         border: 'var(--border)',
         fg: 'var(--text)',
         muted: 'var(--muted)',
+        'muted-low': 'var(--muted-low)',
         accent: 'var(--accent)',
       },
     },
