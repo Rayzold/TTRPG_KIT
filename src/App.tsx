@@ -81,6 +81,7 @@ export default function App() {
     highContrast, toggleHighContrast,
     reduceMotion, toggleReduceMotion,
     logEntries,
+    deleteLogEntry,
   } = useTTRPGStore();
 
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
@@ -228,9 +229,18 @@ export default function App() {
           ) : (
             <div className="space-y-1">
               {recentHistory.map(h => (
-                <div key={h.id} className="text-sm py-1 border-b border-border/40 flex flex-col gap-0.5">
-                  <span className="text-xs text-muted">{h.ts}</span>
-                  <span className="break-words">{h.text}</span>
+                <div key={h.id} className="text-sm py-1 border-b border-border/40 flex items-start justify-between gap-2 group">
+                  <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                    <span className="text-xs text-muted">{h.ts}</span>
+                    <span className="break-words">{h.text}</span>
+                  </div>
+                  <button
+                    onClick={() => deleteLogEntry(h.id)}
+                    className="text-xs text-red-400/50 hover:text-red-400 shrink-0 py-0.5"
+                    title="Delete entry"
+                  >
+                    ✕
+                  </button>
                 </div>
               ))}
             </div>
@@ -308,9 +318,16 @@ export default function App() {
           ) : (
             <div className="space-y-1">
               {recentHistory.map(h => (
-                <div key={h.id} className="text-sm py-1 border-b border-border/40 flex gap-2">
+                <div key={h.id} className="text-sm py-1 border-b border-border/40 flex gap-2 items-start group">
                   <span className="text-xs text-muted shrink-0 tabular-nums">{h.ts}</span>
-                  <span className="min-w-0 break-words">{h.text}</span>
+                  <span className="min-w-0 break-words flex-1">{h.text}</span>
+                  <button
+                    onClick={() => deleteLogEntry(h.id)}
+                    className="text-xs text-red-400/50 hover:text-red-400 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                    title="Delete entry"
+                  >
+                    ✕
+                  </button>
                 </div>
               ))}
             </div>

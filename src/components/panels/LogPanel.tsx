@@ -40,7 +40,7 @@ export default function LogPanel() {
 
   const visibleEntries = logEntries
     .filter((e: any) => !e.sessionId || e.sessionId === activeSessionId)
-    .sort((a: any, b: any) => (a.id || 0) - (b.id || 0));
+    .sort((a: any, b: any) => (b.id || 0) - (a.id || 0)); // Newest first
 
   const handleAdd = () => {
     if (input.trim()) {
@@ -118,10 +118,10 @@ export default function LogPanel() {
     inputRef.current?.focus();
   };
 
-  // Auto-scroll to bottom when new log entries (or session switch) happen
+  // Auto-scroll to top when new log entries arrive (newest first), so user sees latest entry
   useEffect(() => {
     if (logContainerRef.current) {
-      logContainerRef.current.scrollTop = logContainerRef.current.scrollHeight;
+      logContainerRef.current.scrollTop = 0;
     }
   }, [logEntries, currentLogSessionId]);
 
