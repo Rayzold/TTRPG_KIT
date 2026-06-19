@@ -7,24 +7,31 @@ Items are prioritized: **P0** = broken/high-impact, **P1** = important, **P2** =
 ## Session Summary (2026-06-19)
 
 **Completed in this session:**
+
+**Round 1 (review + mobile + reduced motion):**
 - ✅ **Mobile responsiveness** (#3 preset switching, navigation drawer, responsive dice grid, touch targets, iOS zoom-fix).
 - ✅ **Reduced motion** (#4 global `@media (prefers-reduced-motion: reduce)`, in-app toggle, Aurora/Particles skip, particle throttle on phones).
 - ✅ **High-contrast overhaul** (#2, #10 palette mapped to Tailwind tokens, 140+ hex replacements, persistence unified in store).
 - ✅ **Session history** (#8, #12 wired to real log entries, right-sidebar for desktop, new drawer for mobile/tablet, `<html lang>` sync).
-- ✅ **Accessibility improvements** (MagneticButton tap feedback, reduced-motion on iOS Safari font-size fix, semantic landmarks in progress).
+- ✅ **Accessibility improvements** (MagneticButton tap feedback, reduced-motion on iOS Safari font-size fix, semantic landmarks).
 
-**Build status:** Clean tsc + Vite + PWA. All 20 files touched, 403 insertions, 194 deletions.
+**Round 2 (final priorities):**
+- ✅ **PWA icons** (#1 added 192x192, 512x512, maskable variants to public/, updated vite.config.ts manifest).
+- ✅ **Enter-to-roll** (#5 DicePanel now uses controlled state + Enter-key handlers, LogPanel querySelector → useRef).
+- ✅ **React Bits touch states** (TiltCard/MagicCard/SpotlightCard all gate pointer math behind `(hover: hover) and (pointer: fine)`, all have `:active` tap feedback).
 
-**Remaining priorities:** PWA icons (#1), enter-to-roll inputs (#5), TiltCard/MagicCard/SpotlightCard touch states, low-contrast text audit (#18).
+**Build status:** Clean tsc + Vite + PWA. 25 files touched across two rounds, PWA precache now includes 8 entries.
+
+**Remaining (lower priority):** Low-contrast text audit (#18).
 
 ---
 
 ## P0 — Fix first (broken or high-impact)
 
-### 1. Missing PWA icon → broken install experience
+### 1. Missing PWA icon → broken install experience — ✅ addressed
 `vite.config.ts` and `manifest.webmanifest` reference `pwa-192x192.png`, but the file does not exist anywhere in the project. The install prompt and home-screen icon will be broken.
 
-- [ ] Add real icons to `public/` (`pwa-192x192.png`, `pwa-512x512.png`, plus a maskable variant) and reference them in the manifest:
+- [x] **Done:** Created `public/` directory with `pwa-192x192.png`, `pwa-512x512.png`, and `pwa-512x512-maskable.png`. Updated `vite.config.ts` to reference all three icons in the manifest. PWA precache now includes 8 entries (icons + assets). Reference was:
 
 ```ts
 // vite.config.ts
@@ -116,10 +123,10 @@ Consider also a user-facing "Reduce effects" toggle next to High Contrast.
 
 ## P1 — Important (architecture & UX)
 
-### 5. Replace DOM access with React state
+### 5. Replace DOM access with React state — ✅ addressed
 `DicePanel` reads inputs via `document.getElementById('dice-expr')`, and `LogPanel` finds an input with `document.querySelector('input[placeholder*="..."]')`. The querySelector approach is matched against translated placeholder text, so it **breaks when the language changes**. These are React anti-patterns that bypass the render model.
 
-- [ ] Use controlled state (or `useRef`), which also enables Enter-to-submit:
+- [x] **Done:** `DicePanel` now uses `useState` for `expr` and `count` (controlled inputs), with Enter-key handlers (`onKeyDown={e => e.key === 'Enter' && rollCustom(expr, count)}`). `LogPanel` already had controlled state; replaced the querySelector with a useRef for focus management when replying. Both panels now support Enter-to-submit. Reference was:
 
 ```tsx
 const [expr, setExpr] = useState('2d6+3');
@@ -302,15 +309,19 @@ The project already leans on React Bits heavily (Aurora, Particles, GradientText
 
 - [x] **Throttle the heavy backgrounds on mobile — done.** Particle count drops to 30 below `md` (from 80), and the whole Aurora+Particles layer is skipped when motion is reduced.
 - [x] **Wire `prefers-reduced-motion` (ties to #4) — done.** Both the OS setting and the in-app "Reduce Effects" toggle now disable the animated backgrounds and neutralise CSS animations/transitions globally. This was the highest-impact "feel" fix.
-- [~] **Cursor-driven effects are dead on touch — partially done.** `MagneticButton` now has an `active:scale-95` tap state. Still to do: `TiltCard`, `MagicCard`, and `SpotlightCard` key off pointer position and do nothing on a phone — give each a real tap/`:active` state and gate the pointer math behind `(hover: hover) and (pointer: fine)`.
+- [x] **Cursor-driven effects are dead on touch — done.** All cursor-driven components now gate their pointer math behind `(hover: hover) and (pointer: fine)` so they skip on touch devices. `MagneticButton` (`active:scale-95`), `TiltCard` (3D tilt + scale), `MagicCard` (radial gradient tracking + scale), and `SpotlightCard` (spotlight tracking + border glow + scale) all have `:active` tap states for tactile feedback on phones.
 - [ ] **Use motion as choreography, not decoration.** Follow the guide's hero recipe selectively: one `BlurText`/`GradientText` heading per panel (already done), `FadeContent` to stagger result cards in (NPC/Town already do this), and reserve `GlitchText`/`Hyperspeed` for genuine "moments" (a critical roll, a new encounter) rather than constant ambient noise.
 - [ ] **Consider Shape Magic for the card/buttons.** The guide's Shape Magic tool produces the squircle/inner-corner look; applying it to the `rounded-2xl` dice buttons and panel cards would give the premium "iOS" feel that fits a touch-first tool.
 
 ---
 
-## Quick wins (fastest impact-to-effort)
-1. Add the missing PWA icons (**#1**).
+## Quick wins (fastest impact-to-effort) — ALL DONE ✅
+
+1. ~~Add the missing PWA icons (**#1**).~~ ✅ done
 2. ~~Map the Tailwind palette to CSS variables so High Contrast works (**#2**).~~ ✅ done
 3. ~~Make presets reachable on mobile (**#3**).~~ ✅ done
 4. ~~`prefers-reduced-motion` block + optional effects toggle (**#4**).~~ ✅ done
-5. Enter-to-roll via controlled inputs (**#5**).
+5. ~~Enter-to-roll via controlled inputs (**#5**).~~ ✅ done
+
+**Bonus completed:**
+- ~~React Bits cursor effects need touch states.~~ ✅ `TiltCard`, `MagicCard`, `SpotlightCard` all gate pointer math and have `:active` tap feedback.

@@ -18,6 +18,8 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    // Only track spotlight on devices with hover and fine pointer (desktop)
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     setPosition({
@@ -30,7 +32,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className={`relative overflow-hidden rounded-2xl border border-border bg-[#14141f] p-6 transition-colors ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-border bg-surface p-6 transition-colors active:border-accent active:scale-95 ${className}`}
     >
       <div
         className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"

@@ -26,6 +26,7 @@ export default function LogPanel() {
   const [replyTo, setReplyTo] = useState<number | null>(null);
   const [movingEntryId, setMovingEntryId] = useState<number | null>(null);
   const logContainerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Ensure sessions exist (handles migration of flat old logs)
   useEffect(() => {
@@ -114,9 +115,7 @@ export default function LogPanel() {
 
   const startReply = (entryId: number) => {
     setReplyTo(entryId);
-    // focus input
-    const inp = document.querySelector<HTMLInputElement>('input[placeholder*="' + (t('add_note', language) || 'Add') + '"]');
-    inp?.focus();
+    inputRef.current?.focus();
   };
 
   // Auto-scroll to bottom when new log entries (or session switch) happen
@@ -230,12 +229,13 @@ export default function LogPanel() {
 
       {/* Input */}
       <div className="flex gap-2 mb-4">
-        <input 
-          value={input} 
-          onChange={e => setInput(e.target.value)} 
+        <input
+          ref={inputRef}
+          value={input}
+          onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && handleAdd()}
-          placeholder={t('add_note', language)} 
-          className="flex-1 bg-surface2 border border-border rounded-2xl px-4 py-2" 
+          placeholder={t('add_note', language)}
+          className="flex-1 bg-surface2 border border-border rounded-2xl px-4 py-2"
         />
         <button onClick={handleAdd} className="px-6 bg-emerald-600 rounded-2xl">{t('add', language)}</button>
       </div>

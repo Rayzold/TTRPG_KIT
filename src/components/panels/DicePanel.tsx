@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTTRPGStore } from '../../store/useTTRPGStore';
 import { t } from '../../i18n';
 
@@ -9,6 +10,9 @@ import GlitchText from '../ui/GlitchText';
 import TiltCard from '../ui/TiltCard';
 
 export default function DicePanel() {
+  const [expr, setExpr] = useState('2d6+3');
+  const [count, setCount] = useState(1);
+
   const {
     diceHistory,
     rollCustom,
@@ -58,31 +62,31 @@ export default function DicePanel() {
       </div>
 
       {/* Custom Roll */}
-      <SpotlightCard className="p-6 mb-8 rounded-3xl border border-border bg-[#14141f]">
+      <SpotlightCard className="p-6 mb-8 rounded-3xl border border-border bg-surface">
         <div className="flex gap-4 items-end">
           <div className="flex-1">
             <label className="text-xs text-muted">{t('expression', language)}</label>
             <input
-              id="dice-expr"
-              defaultValue="2d6+3"
+              value={expr}
+              onChange={(e) => setExpr(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && rollCustom(expr, count)}
               className="w-full bg-surface2 border border-border focus:border-orange-500 rounded-2xl px-4 py-3 font-mono text-lg"
+              placeholder="2d6+3"
             />
           </div>
           <div>
             <label className="text-xs text-muted">{t('times', language)}</label>
             <input
-              id="dice-count"
               type="number"
-              defaultValue="1"
+              value={count}
+              onChange={(e) => setCount(Math.max(1, parseInt(e.target.value) || 1))}
+              onKeyDown={(e) => e.key === 'Enter' && rollCustom(expr, count)}
               className="w-20 bg-surface2 border border-border rounded-2xl px-3 py-3 text-center"
+              min="1"
             />
           </div>
           <MagneticButton
-            onClick={() => {
-              const expr = (document.getElementById('dice-expr') as HTMLInputElement)?.value;
-              const count = parseInt((document.getElementById('dice-count') as HTMLInputElement)?.value || '1');
-              rollCustom(expr, count);
-            }}
+            onClick={() => rollCustom(expr, count)}
             className="px-10 py-3 bg-orange-600 hover:bg-orange-500 text-white rounded-2xl font-semibold"
           >
             {t('roll', language)}
