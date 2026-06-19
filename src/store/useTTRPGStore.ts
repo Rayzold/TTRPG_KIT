@@ -249,53 +249,75 @@ export const useTTRPGStore = create<TTRPGState>()(
         }));
       },
 
-      rollCustom: (expr = '2d6+3', _count = 1) => {
-        let total = 0;
-        let detail = expr;
+      rollCustom: (expr = '2d6+3', count = 1) => {
+        // Helper: roll the expression once and return { total, detail }
+        const rollOnce = (): { total: number; detail: string } => {
+          let total = 0;
+          let detail = expr;
 
-        const isAdv = expr.includes('adv');
-        const isDis = expr.includes('dis');
+          const isAdv = expr.includes('adv');
+          const isDis = expr.includes('dis');
 
-        if (isAdv || isDis) {
-          const modMatch = expr.match(/([+-]\d+)/);
-          const mod = modMatch ? parseInt(modMatch[1], 10) : 0;
-          const r1 = Math.floor(Math.random() * 20) + 1;
-          const r2 = Math.floor(Math.random() * 20) + 1;
-          const kept = isAdv ? Math.max(r1, r2) : Math.min(r1, r2);
-          total = kept + mod;
-          const sign = mod > 0 ? `+${mod}` : mod < 0 ? `${mod}` : '';
-          detail = `rolled ${r1}/${r2} → ${kept}${sign} (${isAdv ? 'adv' : 'dis'})`;
-        } else {
-          // Basic expression support (XdY+Z, kh, simple)
-          const match = expr.match(/^(\d*)d(\d+)([+-]\d+)?(?:kh?(\d+))?/i);
-          if (match) {
-            const num = parseInt(match[1] || '1', 10);
-            const sides = parseInt(match[2], 10);
-            const mod = match[3] ? parseInt(match[3], 10) : 0;
-            let rolls = Array.from({ length: num }, () => Math.floor(Math.random() * sides) + 1);
-            let keptRolls = [...rolls];
-            const keep = match[4] ? parseInt(match[4], 10) : num;
-            if (keep < num) {
-              keptRolls = keptRolls.sort((a, b) => b - a).slice(0, keep);
-            }
-            total = keptRolls.reduce((a, b) => a + b, 0) + mod;
-            detail = `[${rolls.join(',')}]${keep < num ? ` kh${keep}` : ''}${mod ? (mod > 0 ? `+${mod}` : mod) : ''}`;
+          if (isAdv || isDis) {
+            const modMatch = expr.match(/([+-]\d+)/);
+            const mod = modMatch ? parseInt(modMatch[1], 10) : 0;
+            const r1 = Math.floor(Math.random() * 20) + 1;
+            const r2 = Math.floor(Math.random() * 20) + 1;
+            const kept = isAdv ? Math.max(r1, r2) : Math.min(r1, r2);
+            total = kept + mod;
+            const sign = mod > 0 ? `+${mod}` : mod < 0 ? `${mod}` : '';
+            detail = `rolled ${r1}/${r2} → ${kept}${sign} (${isAdv ? 'adv' : 'dis'})`;
           } else {
-            total = Math.floor(Math.random() * 12) + 6;
-            detail = `${expr} = ${total}`;
+            // Basic expression support (XdY+Z, kh, simple)
+            const match = expr.match(/^(\d*)d(\d+)([+-]\d+)?(?:kh?(\d+))?/i);
+            if (match) {
+              const num = parseInt(match[1] || '1', 10);
+              const sides = parseInt(match[2], 10);
+              const mod = match[3] ? parseInt(match[3], 10) : 0;
+              let rolls = Array.from({ length: num }, () => Math.floor(Math.random() * sides) + 1);
+              let keptRolls = [...rolls];
+              const keep = match[4] ? parseInt(match[4], 10) : num;
+              if (keep < num) {
+                keptRolls = keptRolls.sort((a, b) => b - a).slice(0, keep);
+              }
+              total = keptRolls.reduce((a, b) => a + b, 0) + mod;
+              detail = `[${rolls.join(',')}]${keep < num ? ` kh${keep}` : ''}${mod ? (mod > 0 ? `+${mod}` : mod) : ''}`;
+            } else {
+              total = Math.floor(Math.random() * 12) + 6;
+              detail = `${expr} = ${total}`;
+            }
           }
+
+          return { total, detail };
+        };
+
+        // Roll count times
+        const count_val = Math.max(1, Math.floor(count || 1));
+        let totalSum = 0;
+        let allDetails: string[] = [];
+
+        for (let i = 0; i < count_val; i++) {
+          const { total } = rollOnce();
+          totalSum += total;
+          allDetails.push(`${total}`);
         }
+
+        // Format detail: show all individual results and sum
+        const detailStr = count_val === 1
+          ? allDetails[0]
+          : `(×${count_val}) [${allDetails.join(', ')}] = ${totalSum}`;
 
         set((state) => {
           const newHistory = [
-            { time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), expr, total, detail },
+            { time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), expr, total: totalSum, detail: detailStr },
             ...state.diceHistory,
           ].slice(0, 12);
 
           return { diceHistory: newHistory };
         });
 
-        get().addToLog(`Rolled ${expr}: ${total}`);
+        const logMsg = count_val === 1 ? `Rolled ${expr}: ${totalSum}` : `Rolled ${expr} ×${count_val}: ${totalSum}`;
+        get().addToLog(logMsg);
       },
 
       quickRoll: (sides, mod = '') => {
