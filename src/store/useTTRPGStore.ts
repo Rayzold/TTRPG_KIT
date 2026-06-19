@@ -61,6 +61,8 @@ export interface TTRPGState {
   currentPlotResult: string | null;
   currentWeatherResult: string | null;
   language: 'en' | 'el';
+  highContrast: boolean;
+  reduceMotion: boolean;
   logSessions: LogSession[];
   currentLogSessionId: string | null;
 
@@ -118,6 +120,7 @@ export interface TTRPGState {
   updatePresetDisplay: () => void; // usually component side effect
 
   toggleHighContrast: () => void;
+  toggleReduceMotion: () => void;
   setLanguage: (lang: 'en' | 'el') => void;
 
   // Log session / folder / thread support
@@ -174,6 +177,8 @@ const defaultState = {
   currentPlotResult: null,
   currentWeatherResult: null,
   language: 'en',
+  highContrast: false,
+  reduceMotion: false,
   logSessions: [{ id: 'default', name: 'Main Session', created: new Date().toISOString() }],
   currentLogSessionId: 'default',
 };
@@ -706,11 +711,11 @@ export const useTTRPGStore = create<TTRPGState>()(
         // Usually handled in React component
       },
 
-      toggleHighContrast: () => {
-        const isOn = !document.body.classList.contains('high-contrast');
-        document.body.classList.toggle('high-contrast', isOn);
-        localStorage.setItem('ttrpg-kit-high-contrast', String(isOn));
-      },
+      // High-contrast & reduce-motion live in the persisted store (single source of
+      // truth). App.tsx applies the matching <body> classes via an effect, so they
+      // survive reloads instead of drifting out of sync with a separate localStorage key.
+      toggleHighContrast: () => set((state) => ({ highContrast: !state.highContrast })),
+      toggleReduceMotion: () => set((state) => ({ reduceMotion: !state.reduceMotion })),
 
       setLanguage: (lang: 'en' | 'el') => set({ language: lang }),
 

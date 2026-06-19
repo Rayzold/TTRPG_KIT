@@ -24,12 +24,51 @@ body {
   border-radius: 16px;
 }
 
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .panel {
+    border-radius: 12px;
+  }
+  /* Comfortable touch targets (WCAG 2.5.5) */
+  button {
+    min-height: 44px;
+  }
+  /* Prevent iOS Safari from auto-zooming when a sub-16px input is focused */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
 .result-box {
   background: var(--surface3);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 14px 16px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Reduce motion — honoured both from the OS setting and the in-app toggle
+   (.reduce-motion on <body>). Neutralises CSS animations/transitions; the
+   JS-driven Aurora/Particles canvases are skipped in App.tsx separately. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body.reduce-motion *,
+body.reduce-motion *::before,
+body.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
 }
 
 /* High contrast mode from previous work */

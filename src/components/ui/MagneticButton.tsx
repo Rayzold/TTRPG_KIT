@@ -28,7 +28,9 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({ children, className = '
       onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative transition-transform duration-200 ease-out ${className}`}
+      // active:scale-95 gives tactile feedback on touch, where the magnetic
+      // (pointer-driven) movement never fires.
+      className={`relative transition-transform duration-200 ease-out active:scale-95 ${className}`}
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,
       }}

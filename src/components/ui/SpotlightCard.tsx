@@ -30,7 +30,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className={`relative overflow-hidden rounded-2xl border border-[#3a3a4f] bg-[#14141f] p-6 transition-colors ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-border bg-[#14141f] p-6 transition-colors ${className}`}
     >
       <div
         className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"

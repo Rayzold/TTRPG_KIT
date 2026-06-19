@@ -29,7 +29,7 @@ export default function BackstoryGenerator() {
 
       <div>
         <div className="section-title mb-3">{t('saved_backstories', language)}</div>
-        {savedBackstories.length === 0 && <div className="text-[#575c6f]">{t('no_backstories', language)}</div>}
+        {savedBackstories.length === 0 && <div className="text-muted">{t('no_backstories', language)}</div>}
         <div className="space-y-3">
           {savedBackstories.map((bs: string, i: number) => (
             <FadeContent key={i}>
@@ -37,8 +37,8 @@ export default function BackstoryGenerator() {
                 <div className="panel p-4">
                   <div>{bs}</div>
                   <div className="mt-3 flex gap-2 text-xs">
-                    <button onClick={() => pin(bs)} className="px-3 py-1 border border-[#3a3a4f] rounded">{t('log', language)}</button>
-                    <button onClick={() => navigator.clipboard.writeText(bs)} className="px-3 py-1 border border-[#3a3a4f] rounded">{t('copy', language)}</button>
+                    <button onClick={() => pin(bs)} className="px-3 py-1 border border-border rounded">{t('log', language)}</button>
+                    <button onClick={() => navigator.clipboard.writeText(bs)} className="px-3 py-1 border border-border rounded">{t('copy', language)}</button>
                   </div>
                 </div>
               </TiltCard>

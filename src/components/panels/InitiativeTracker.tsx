@@ -50,10 +50,10 @@ export default function InitiativeTracker() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-3xl font-bold">{t('initiative_tracker', language)}</h1>
-          <div className="text-sm text-[#9ca3b8]">{t('round_current', language)}</div>
+          <div className="text-sm text-muted">{t('round_current', language)}</div>
         </div>
         <div className="flex gap-2">
-          <MagneticButton onClick={rollAllInitiative} className="px-4 py-2 border border-[#3a3a4f]">{t('re_roll', language)}</MagneticButton>
+          <MagneticButton onClick={rollAllInitiative} className="px-4 py-2 border border-border">{t('re_roll', language)}</MagneticButton>
           <MagneticButton onClick={nextTurn} className="px-6 py-2 bg-emerald-600">{t('next_turn', language)}</MagneticButton>
           <button onClick={resetInitiative} className="px-4 py-2 text-red-400 border border-red-800 rounded">{t('reset', language)}</button>
           <MagneticButton onClick={rollLairAction} className="px-4 py-2 border border-purple-800 text-purple-400">{t('lair_action', language)}</MagneticButton>
@@ -61,51 +61,51 @@ export default function InitiativeTracker() {
       </div>
 
       {/* Add Combatant */}
-      <div className="mb-2 text-xs uppercase tracking-widest text-[#9ca3b8]">{t('add_combatant', language)}</div>
+      <div className="mb-2 text-xs uppercase tracking-widest text-muted">{t('add_combatant', language)}</div>
       <div className="flex gap-3 mb-6 items-end">
         <div className="flex-1">
-          <label htmlFor="init-name" className="text-sm font-medium text-[#c5c9d8] block mb-1">{t('name', language)}</label>
+          <label htmlFor="init-name" className="text-sm font-medium text-fg block mb-1">{t('name', language)}</label>
           <input 
             id="init-name"
             value={newCombatant.name} 
             onChange={e => setNewCombatant({...newCombatant, name: e.target.value})}
             placeholder="Goblin" 
-            className="w-full bg-[#1c1c2a] border border-[#3a3a4f] px-4 py-2 rounded-xl" 
+            className="w-full bg-surface2 border border-border px-4 py-2 rounded-xl" 
             aria-label="Combatant name"
           />
         </div>
         <div>
-          <label htmlFor="init-bonus" className="text-sm font-medium text-[#c5c9d8] block mb-1">{t('init_bonus', language)}</label>
+          <label htmlFor="init-bonus" className="text-sm font-medium text-fg block mb-1">{t('init_bonus', language)}</label>
           <input 
             id="init-bonus"
             type="number" 
             value={newCombatant.bonus} 
             onChange={e => setNewCombatant({...newCombatant, bonus: +e.target.value})} 
-            className="w-20 bg-[#1c1c2a] border border-[#3a3a4f] px-3 py-2 rounded-xl" 
+            className="w-20 bg-surface2 border border-border px-3 py-2 rounded-xl" 
             placeholder="+0" 
             aria-label="Initiative bonus" 
           />
         </div>
         <div>
-          <label htmlFor="init-hp" className="text-sm font-medium text-[#c5c9d8] block mb-1">HP</label>
+          <label htmlFor="init-hp" className="text-sm font-medium text-fg block mb-1">HP</label>
           <input 
             id="init-hp"
             type="number" 
             value={newCombatant.hp} 
             onChange={e => setNewCombatant({...newCombatant, hp: +e.target.value})} 
-            className="w-20 bg-[#1c1c2a] border border-[#3a3a4f] px-3 py-2 rounded-xl" 
+            className="w-20 bg-surface2 border border-border px-3 py-2 rounded-xl" 
             placeholder="20" 
             aria-label="Hit points" 
           />
         </div>
         <div>
-          <label htmlFor="init-ac" className="text-sm font-medium text-[#c5c9d8] block mb-1">AC</label>
+          <label htmlFor="init-ac" className="text-sm font-medium text-fg block mb-1">AC</label>
           <input 
             id="init-ac"
             type="number" 
             value={newCombatant.ac} 
             onChange={e => setNewCombatant({...newCombatant, ac: +e.target.value})} 
-            className="w-20 bg-[#1c1c2a] border border-[#3a3a4f] px-3 py-2 rounded-xl" 
+            className="w-20 bg-surface2 border border-border px-3 py-2 rounded-xl" 
             placeholder="12" 
             aria-label="Armor class" 
           />
@@ -115,7 +115,7 @@ export default function InitiativeTracker() {
 
       {/* Initiative List */}
       <div className="space-y-2">
-        {initiative.length === 0 && <div className="text-[#575c6f] p-6">{t('no_combatants', language)}</div>}
+        {initiative.length === 0 && <div className="text-muted p-6">{t('no_combatants', language)}</div>}
         
         {initiative.map((c, idx) => (
           <TiltCard key={c.id}>
@@ -129,11 +129,11 @@ export default function InitiativeTracker() {
             <div className="w-12 text-center text-2xl font-bold text-orange-400">{c.init}</div>
             
             <div className="flex-1">
-              <div className="font-medium">{c.name} <span className="text-xs text-[#9ca3b8]">({c.initBonus >= 0 ? '+' : ''}{c.initBonus})</span></div>
+              <div className="font-medium">{c.name} <span className="text-xs text-muted">({c.initBonus >= 0 ? '+' : ''}{c.initBonus})</span></div>
               <div className="flex gap-3 text-sm mt-1">
                 <span>AC {c.ac}</span>
                 <span>HP {c.hp}/{c.maxHp}</span>
-                <div className="flex-1 h-1.5 bg-[#242436] rounded self-center">
+                <div className="flex-1 h-1.5 bg-surface3 rounded self-center">
                   <div className="h-1.5 bg-emerald-500 rounded" style={{width: `${(c.hp / c.maxHp) * 100}%`}} />
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function InitiativeTracker() {
                     </span>
                   );
                 })}
-                <button onClick={() => {/* prompt for condition */}} className="text-xs text-[#6b7280] px-1">+</button>
+                <button onClick={() => {/* prompt for condition */}} className="text-xs text-muted px-1">+</button>
               </div>
             </div>
 
@@ -165,7 +165,7 @@ export default function InitiativeTracker() {
         ))}
       </div>
 
-      <div className="mt-4 text-xs text-[#6b7280]">
+      <div className="mt-4 text-xs text-muted">
         {t('drag_reorder_hint', language)}
       </div>
     </div>

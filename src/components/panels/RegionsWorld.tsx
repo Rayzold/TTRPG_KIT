@@ -52,10 +52,10 @@ export default function RegionsWorld() {
             <TiltCard key={i}>
               <SpotlightCard className="p-4">
                 <div className="font-semibold">{r.name}</div>
-                <div className="text-sm text-[#9ca3b8] mb-3">{r.desc}</div>
+                <div className="text-sm text-muted mb-3">{r.desc}</div>
                 
                 <div className="flex gap-2 text-xs">
-                  <button onClick={() => scoutRegion(r.name)} className="px-3 py-1 border rounded hover:bg-[#242436]">{t('scout', language)}</button>
+                  <button onClick={() => scoutRegion(r.name)} className="px-3 py-1 border rounded hover:bg-surface3">{t('scout', language)}</button>
                   <button onClick={() => setCurrentRegion(r.name)} className="px-3 py-1 border border-teal-800 text-teal-400 rounded hover:bg-teal-900/30">{t('set_current', language)}</button>
                 </div>
               </SpotlightCard>

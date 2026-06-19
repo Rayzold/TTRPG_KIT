@@ -11,6 +11,7 @@ const en: Translations = {
   tools: 'Tools',
   preset: 'Preset',
   toggle_high_contrast: 'Toggle High Contrast',
+  toggle_reduce_motion: 'Reduce Effects',
   session_history: 'SESSION HISTORY',
   history_placeholder: 'History items will appear here...',
 
@@ -211,6 +212,7 @@ const el: Translations = {
   tools: 'Εργαλεία',
   preset: 'Προεπιλογή',
   toggle_high_contrast: 'Εναλλαγή Υψηλής Αντίθεσης',
+  toggle_reduce_motion: 'Μείωση Εφέ',
   session_history: 'ΙΣΤΟΡΙΚΟ ΣΥΝΕΔΡΙΑΣ',
   history_placeholder: 'Τα στοιχεία ιστορικού θα εμφανιστούν εδώ...',
 

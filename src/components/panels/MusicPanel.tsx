@@ -218,7 +218,7 @@ export default function MusicPanel() {
       <div className="flex justify-between mb-6">
         <div>
           <BlurText text={t('music_suggestions', language)} className="text-3xl font-bold" />
-          <p className="text-[#9ca3b8] text-sm">{t('music_subtitle', language)}</p>
+          <p className="text-muted text-sm">{t('music_subtitle', language)}</p>
         </div>
         <div className="flex gap-2">
           <MagneticButton onClick={openProjector} className="px-5 py-2 border border-orange-800 text-orange-400">
@@ -242,7 +242,7 @@ export default function MusicPanel() {
               <button
                 key={key}
                 onClick={() => loadMood(key)}
-                className={`px-3 py-1.5 text-sm rounded-xl border flex items-center gap-1.5 transition ${isActive ? 'bg-violet-900/40 border-violet-600' : 'border-[#3a3a4f] bg-[#1c1c2a] hover:bg-violet-900/30'}`}
+                className={`px-3 py-1.5 text-sm rounded-xl border flex items-center gap-1.5 transition ${isActive ? 'bg-violet-900/40 border-violet-600' : 'border-border bg-surface2 hover:bg-violet-900/30'}`}
               >
                 <span>{m.icon}</span> {m.label}
               </button>
@@ -253,16 +253,16 @@ export default function MusicPanel() {
 
       {/* Mood Mixer */}
       <div className="mb-6 panel p-4 rounded-2xl">
-        <div className="text-xs font-medium mb-2 text-[#9ca3b8]">{t('mood_mixer', language)}</div>
+        <div className="text-xs font-medium mb-2 text-muted">{t('mood_mixer', language)}</div>
         <div className="flex gap-2 items-center flex-wrap">
-          <select value={mix1} onChange={e => setMix1(e.target.value)} className="bg-[#1c1c2a] border border-[#3a3a4f] rounded px-3 py-1 text-sm">
+          <select value={mix1} onChange={e => setMix1(e.target.value)} className="bg-surface2 border border-border rounded px-3 py-1 text-sm">
             {moodKeys.map(k => <option key={k} value={k}>{MUSIC_DATA[k].label}</option>)}
           </select>
           <span>+</span>
-          <select value={mix2} onChange={e => setMix2(e.target.value)} className="bg-[#1c1c2a] border border-[#3a3a4f] rounded px-3 py-1 text-sm">
+          <select value={mix2} onChange={e => setMix2(e.target.value)} className="bg-surface2 border border-border rounded px-3 py-1 text-sm">
             {moodKeys.map(k => <option key={k} value={k}>{MUSIC_DATA[k].label}</option>)}
           </select>
-          <button onClick={mixMoods} className="px-4 py-1 bg-[#242436] hover:bg-violet-900/30 border border-[#3a3a4f] rounded text-sm">{t('mix_suggestions', language)}</button>
+          <button onClick={mixMoods} className="px-4 py-1 bg-surface3 hover:bg-violet-900/30 border border-border rounded text-sm">{t('mix_suggestions', language)}</button>
         </div>
       </div>
 
@@ -278,7 +278,7 @@ export default function MusicPanel() {
                 <SpotlightCard key={idx} className="p-4">
                   <div className="flex justify-between">
                     <div className="flex-1">
-                      <div className="font-medium">{sug.title} — <span className="text-[#9ca3b8]">{sug.artist}</span></div>
+                      <div className="font-medium">{sug.title} — <span className="text-muted">{sug.artist}</span></div>
                       {sug.why && <div className="text-sm mt-1">{sug.why}</div>}
                       {sug.notes && <div className="text-xs mt-1 text-amber-300/80">💡 {sug.notes}</div>}
                     </div>
@@ -292,11 +292,11 @@ export default function MusicPanel() {
                         <button onClick={() => addSuggestionToPlaylist(sug)} className="px-2 py-0.5 border border-teal-800 text-teal-400 rounded">+Playlist</button>
                         <button 
                           onClick={() => toggleFav(sug)} 
-                          className={`px-2 py-0.5 border rounded ${isFav ? 'border-red-600 text-red-400' : 'border-[#3a3a4f]'}`}
+                          className={`px-2 py-0.5 border rounded ${isFav ? 'border-red-600 text-red-400' : 'border-border'}`}
                         >
                           {isFav ? '♥' : '♡'}
                         </button>
-                        <button onClick={() => openBoth(sug.yt, sug.sp)} className="px-2 py-0.5 border border-[#3a3a4f] rounded">YT+SP</button>
+                        <button onClick={() => openBoth(sug.yt, sug.sp)} className="px-2 py-0.5 border border-border rounded">YT+SP</button>
                       </div>
                     </div>
                   </div>
@@ -316,9 +316,9 @@ export default function MusicPanel() {
             <button onClick={clearMusicFavorites} className="text-xs text-red-400">{t('clear', language)}</button>
           </div>
           <div className="panel p-3 min-h-[90px] space-y-1 text-sm">
-            {musicFavorites.length === 0 && <div className="text-[#575c6f] text-xs">Heart tracks from mood results.</div>}
+            {musicFavorites.length === 0 && <div className="text-muted text-xs">Heart tracks from mood results.</div>}
             {musicFavorites.map((fav: any, i: number) => (
-              <div key={i} className="flex justify-between items-center py-0.5 border-b border-[#3a3a4f] last:border-none">
+              <div key={i} className="flex justify-between items-center py-0.5 border-b border-border last:border-none">
                 <div className="truncate">{fav.title} — {fav.artist}</div>
                 <div className="flex gap-2 text-xs">
                   <a href={fav.yt} target="_blank" className="text-red-400">YT</a>
@@ -341,7 +341,7 @@ export default function MusicPanel() {
           </div>
           <div className="panel p-3 min-h-[90px] text-sm">
             {musicPlaylist.length === 0 ? (
-              <div className="text-[#575c6f] text-xs">Use +Playlist from any mood or favorites.</div>
+              <div className="text-muted text-xs">Use +Playlist from any mood or favorites.</div>
             ) : (
               musicPlaylist.map((track: any, index: number) => (
                 <div key={index} className="flex justify-between py-1 border-b last:border-none items-center">
@@ -379,11 +379,11 @@ export default function MusicPanel() {
               onChange={e => setCustomQuery(e.target.value)} 
               onKeyDown={e => e.key === 'Enter' && customSearch()}
               placeholder="dark forest ambience, tavern songs..." 
-              className="flex-1 bg-[#1c1c2a] border border-[#3a3a4f] rounded-xl px-3 py-2 text-sm" 
+              className="flex-1 bg-surface2 border border-border rounded-xl px-3 py-2 text-sm" 
             />
-            <button onClick={customSearch} className="px-4 border border-[#3a3a4f] rounded-xl text-sm">Search YT+SP</button>
+            <button onClick={customSearch} className="px-4 border border-border rounded-xl text-sm">Search YT+SP</button>
           </div>
-          <div className="text-[10px] text-[#6b7280] mt-1">Opens YouTube + Spotify searches. Add "1h loop" for extended tracks.</div>
+          <div className="text-[10px] text-muted mt-1">Opens YouTube + Spotify searches. Add "1h loop" for extended tracks.</div>
         </div>
 
         {/* Local Audio */}
@@ -394,7 +394,7 @@ export default function MusicPanel() {
           {localTracks.length > 0 && (
             <div className="space-y-1 text-xs max-h-28 overflow-auto mb-2">
               {localTracks.map((t, i) => (
-                <div key={i} className={`flex justify-between items-center px-2 py-0.5 rounded ${currentLocalTrack?.name === t.name ? 'bg-[#242436]' : ''}`}>
+                <div key={i} className={`flex justify-between items-center px-2 py-0.5 rounded ${currentLocalTrack?.name === t.name ? 'bg-surface3' : ''}`}>
                   <span className="truncate cursor-pointer" onClick={() => playLocal(t)}>{t.name}</span>
                   <button onClick={() => removeLocalTrack(i)} className="text-red-400">×</button>
                 </div>
@@ -403,8 +403,8 @@ export default function MusicPanel() {
           )}
 
           <div className="flex gap-2 items-center text-xs">
-            <button onClick={toggleLocalPlay} disabled={!currentLocalTrack} className="px-3 py-1 border border-[#3a3a4f] rounded">{isPlayingLocal ? '⏸ Pause' : '▶ Play'}</button>
-            <button onClick={stopLocal} className="px-2 py-1 border border-[#3a3a4f] rounded">Stop</button>
+            <button onClick={toggleLocalPlay} disabled={!currentLocalTrack} className="px-3 py-1 border border-border rounded">{isPlayingLocal ? '⏸ Pause' : '▶ Play'}</button>
+            <button onClick={stopLocal} className="px-2 py-1 border border-border rounded">Stop</button>
             <label className="ml-2">Vol</label>
             <input type="range" min="0" max="1" step="0.05" value={localVolume} onChange={e => updateLocalVolume(parseFloat(e.target.value))} className="w-20" />
             <label className="flex items-center gap-1"><input type="checkbox" checked={localLoop} onChange={e => toggleLocalLoop(e.target.checked)} /> Loop</label>

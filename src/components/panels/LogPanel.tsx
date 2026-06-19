@@ -132,13 +132,13 @@ export default function LogPanel() {
 
       {/* Session / Folder selector - folders for logs */}
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <div className="text-xs uppercase tracking-widest text-[#9ca3b8] mr-1">{t('session', language)}:</div>
+        <div className="text-xs uppercase tracking-widest text-muted mr-1">{t('session', language)}:</div>
 
         {sessions.length > 0 && (
           <select
             value={activeSessionId}
             onChange={(e) => handleSwitch(e.target.value)}
-            className="bg-[#1c1c2a] border border-[#3a3a4f] rounded-xl px-3 py-1 text-sm"
+            className="bg-surface2 border border-border rounded-xl px-3 py-1 text-sm"
           >
             {sessions.map((s) => (
               <option key={s.id} value={s.id}>{s.name}</option>
@@ -156,7 +156,7 @@ export default function LogPanel() {
 
         <button
           onClick={handleRename}
-          className="px-2.5 py-1 text-xs border border-[#3a3a4f] hover:bg-[#1c1c2a] rounded-xl"
+          className="px-2.5 py-1 text-xs border border-border hover:bg-surface2 rounded-xl"
           disabled={!currentSession}
         >
           {t('rename', language)}
@@ -188,7 +188,7 @@ export default function LogPanel() {
         </button>
 
         <div className="flex items-center gap-1">
-          <span className="text-[10px] text-[#6b7280] mr-0.5">{t('export_log', language)}:</span>
+          <span className="text-[10px] text-muted mr-0.5">{t('export_log', language)}:</span>
           <button
             onClick={() => handleExportLog('md')}
             className="px-2 py-1 text-xs border border-emerald-800/60 hover:bg-emerald-900/40 text-emerald-400 rounded-xl"
@@ -215,14 +215,14 @@ export default function LogPanel() {
           </button>
         </div>
 
-        <div className="ml-auto text-[10px] text-[#6b7280]">
+        <div className="ml-auto text-[10px] text-muted">
           {visibleEntries.length} entries • move entries between folders with →
         </div>
       </div>
 
       {/* Reply context */}
       {replyTo && (
-        <div className="mb-2 text-xs px-3 py-1 bg-[#1c1c2a] border border-[#3a3a4f] rounded-xl inline-flex items-center gap-2">
+        <div className="mb-2 text-xs px-3 py-1 bg-surface2 border border-border rounded-xl inline-flex items-center gap-2">
           <span>{t('reply_to', language)} #{replyTo}</span>
           <button onClick={() => setReplyTo(null)} className="text-red-400 hover:text-red-300">✕</button>
         </div>
@@ -235,7 +235,7 @@ export default function LogPanel() {
           onChange={e => setInput(e.target.value)} 
           onKeyDown={e => e.key === 'Enter' && handleAdd()}
           placeholder={t('add_note', language)} 
-          className="flex-1 bg-[#1c1c2a] border border-[#3a3a4f] rounded-2xl px-4 py-2" 
+          className="flex-1 bg-surface2 border border-border rounded-2xl px-4 py-2" 
         />
         <button onClick={handleAdd} className="px-6 bg-emerald-600 rounded-2xl">{t('add', language)}</button>
       </div>
@@ -246,26 +246,26 @@ export default function LogPanel() {
         className="max-h-[500px] overflow-y-auto flex flex-col gap-2 pr-1"
       >
         {visibleEntries.length === 0 && (
-          <div className="text-sm text-[#6b7280] italic p-2">{t('no_log_entries', language)}</div>
+          <div className="text-sm text-muted italic p-2">{t('no_log_entries', language)}</div>
         )}
         {visibleEntries.map((entry: any) => {
           const isReply = !!entry.parentId;
           return (
             <div 
               key={entry.id} 
-              className={`panel p-3 text-sm ${isReply ? 'ml-6 border-l-2 border-[#3a3a4f]' : ''}`}
+              className={`panel p-3 text-sm ${isReply ? 'ml-6 border-l-2 border-border' : ''}`}
             >
               <div className="flex items-start justify-between gap-2">
                 <div>
-                  <span className="text-xs text-[#6b7280] mr-2">{entry.ts}</span>
-                  {isReply && <span className="text-[#6b7280] mr-1">↳</span>}
+                  <span className="text-xs text-muted mr-2">{entry.ts}</span>
+                  {isReply && <span className="text-muted mr-1">↳</span>}
                   {entry.text}
                 </div>
                 <div className="flex items-center gap-1 shrink-0">
                   {movingEntryId === entry.id ? (
                     <>
                       <select
-                        className="text-xs bg-[#1c1c2a] border border-[#3a3a4f] rounded px-2 py-0.5"
+                        className="text-xs bg-surface2 border border-border rounded px-2 py-0.5"
                         onChange={(e) => handleMoveEntry(entry.id, e.target.value)}
                         defaultValue=""
                       >
@@ -276,7 +276,7 @@ export default function LogPanel() {
                       </select>
                       <button
                         onClick={() => setMovingEntryId(null)}
-                        className="text-xs px-1.5 py-0.5 opacity-70 hover:opacity-100 rounded hover:bg-[#2a2a3a]"
+                        className="text-xs px-1.5 py-0.5 opacity-70 hover:opacity-100 rounded hover:bg-surface3"
                       >
                         {t('cancel', language)}
                       </button>
@@ -285,7 +285,7 @@ export default function LogPanel() {
                     <>
                       <button 
                         onClick={() => startReply(entry.id)} 
-                        className="text-xs px-1.5 py-0.5 opacity-60 hover:opacity-100 rounded hover:bg-[#2a2a3a]"
+                        className="text-xs px-1.5 py-0.5 opacity-60 hover:opacity-100 rounded hover:bg-surface3"
                         title={t('reply_to', language)}
                       >
                         ↩
@@ -300,7 +300,7 @@ export default function LogPanel() {
                       {otherSessions.length > 0 && (
                         <button 
                           onClick={() => setMovingEntryId(entry.id)} 
-                          className="text-xs px-1.5 py-0.5 opacity-60 hover:opacity-100 rounded hover:bg-[#2a2a3a]"
+                          className="text-xs px-1.5 py-0.5 opacity-60 hover:opacity-100 rounded hover:bg-surface3"
                           title={t('move', language)}
                         >
                           →

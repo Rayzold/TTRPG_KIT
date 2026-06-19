@@ -36,7 +36,7 @@ export default function EncountersPanel() {
     <div className="max-w-3xl">
       <div className="mb-6 relative">
         <BlurText text={t('encounter_builder', language)} className="text-3xl font-bold" />
-        <p className="text-[#9ca3b8]">{t('encounter_subtitle', language)}</p>
+        <p className="text-muted">{t('encounter_subtitle', language)}</p>
         <Particles className="opacity-20" particleCount={40} />
         <Hyperspeed className={bossMode ? "opacity-40" : "opacity-10"} />
       </div>
@@ -46,19 +46,19 @@ export default function EncountersPanel() {
           <select 
             value={partySize} 
             onChange={e => setPartySize(parseInt(e.target.value))}
-            className="bg-[#1c1c2a] border border-[#3a3a4f] px-4 py-2 rounded-xl">
+            className="bg-surface2 border border-border px-4 py-2 rounded-xl">
             {[1,2,3,4,5,6].map(n => <option key={n} value={n}>{n} PCs</option>)}
           </select>
           <select 
             value={level} 
             onChange={e => setLevel(parseInt(e.target.value))}
-            className="bg-[#1c1c2a] border border-[#3a3a4f] px-4 py-2 rounded-xl">
+            className="bg-surface2 border border-border px-4 py-2 rounded-xl">
             {[1,3,5,8,10,15,20].map(n => <option key={n} value={n}>Level {n}</option>)}
           </select>
           <select 
             value={difficulty} 
             onChange={e => setDifficulty(e.target.value)}
-            className="bg-[#1c1c2a] border border-[#3a3a4f] px-4 py-2 rounded-xl">
+            className="bg-surface2 border border-border px-4 py-2 rounded-xl">
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
@@ -67,7 +67,7 @@ export default function EncountersPanel() {
           <select 
             value={theme} 
             onChange={e => setTheme(e.target.value)}
-            className="bg-[#1c1c2a] border border-[#3a3a4f] px-4 py-2 rounded-xl">
+            className="bg-surface2 border border-border px-4 py-2 rounded-xl">
             <option value="generic">{t('generic', language)}</option>
             <option value="undead">{t('undead', language)}</option>
             <option value="dragon">{t('dragon', language)}</option>
@@ -76,7 +76,7 @@ export default function EncountersPanel() {
           <MagneticButton onClick={handleGenerate} className="px-8 bg-red-600">{t('generate', language)}</MagneticButton>
           <button 
             onClick={() => setBossMode(!bossMode)} 
-            className={`px-4 py-2 rounded-xl border ${bossMode ? 'bg-red-900 border-red-500 text-red-400' : 'border-[#3a3a4f]'}`}
+            className={`px-4 py-2 rounded-xl border ${bossMode ? 'bg-red-900 border-red-500 text-red-400' : 'border-border'}`}
           >
             {bossMode ? t('boss_mode_on', language) : t('boss_mode', language)}
           </button>
@@ -87,22 +87,22 @@ export default function EncountersPanel() {
         <div className="panel p-5 rounded-2xl mb-6">
           <div className="uppercase text-xs tracking-widest text-red-400">ENCOUNTER — {(currentEncounter.diff || 'unknown').toUpperCase()} {currentEncounter.theme ? `(${t('theme', language)}: ${currentEncounter.theme})` : ''}</div>
           <div className="text-xl font-semibold mt-1">{(currentEncounter.creatures || []).join(' + ')}</div>
-          <div className="text-sm text-[#9ca3b8] mt-0.5">Terrain: {currentEncounter.terrain || ''}</div>
+          <div className="text-sm text-muted mt-0.5">Terrain: {currentEncounter.terrain || ''}</div>
           <div className="mt-2 text-xs">Target XP: ~{currentEncounter.targetXP || '?'} | Actual ~{currentEncounter.actualXP || '?'}</div>
-          <div className="mt-4 pt-3 border-t border-[#3a3a4f] text-sm">
-            <div className="text-[#9ca3b8]">Tactics / Complication</div>
+          <div className="mt-4 pt-3 border-t border-border text-sm">
+            <div className="text-muted">Tactics / Complication</div>
             <div>{currentEncounter.twist || ''}</div>
           </div>
           <div className="mt-2 text-xs">
-            <div className="text-[#9ca3b8]">Group Tactics:</div>
+            <div className="text-muted">Group Tactics:</div>
             <div>{currentEncounter.groupTactics || ''}</div>
           </div>
           <div className="mt-2 text-xs">
-            <div className="text-[#9ca3b8]">{t('special', language)}:</div>
+            <div className="text-muted">{t('special', language)}:</div>
             <div>{currentEncounter.specialAbility || ''}</div>
           </div>
           <div className="mt-2 text-xs">
-            <div className="text-[#9ca3b8]">Loot:</div>
+            <div className="text-muted">Loot:</div>
             <div>{(currentEncounter.loot || []).join(' • ')}</div>
           </div>
           <div className="mt-4 flex gap-2">

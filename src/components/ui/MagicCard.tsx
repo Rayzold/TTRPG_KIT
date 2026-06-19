@@ -18,7 +18,7 @@ export default function MagicCard({ children, className = '', gradientColor = '#
         background: `linear-gradient(45deg, ${gradientColor}20, transparent, ${gradientColor}20)` 
       }}
     >
-      <div className="relative z-10 bg-[#14141f] rounded-[calc(1.5rem-1px)] p-4 group-hover:bg-[#1c1c2a] transition-colors">
+      <div className="relative z-10 bg-[#14141f] rounded-[calc(1.5rem-1px)] p-4 group-hover:bg-surface2 transition-colors">
         {children}
       </div>
       <div 
