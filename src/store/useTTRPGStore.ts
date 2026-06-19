@@ -107,6 +107,11 @@ export interface TTRPGState {
   setCurrentRegion: (region: string) => void;
   scoutRegion: (region: string) => void;
   rollWorldThreat: () => void;
+  updateFactionPressure: (faction: string, value: number) => void;
+  addFaction: (name: string) => void;
+  removeFaction: (name: string) => void;
+  updateRegionNotes: (region: string, notes: string) => void;
+  advanceDay: (days?: number) => void;
 
   addToMusicPlaylist: (track: any) => void;
   removeFromMusicPlaylist: (index: number) => void;
@@ -694,25 +699,40 @@ export const useTTRPGStore = create<TTRPGState>()(
       },
 
       setCurrentRegion: (region) => {
-        set((state) => ({
-          world: { ...state.world, currentRegion: region }
-        }));
+        set((state) => {
+          const existing = state.world.regions[region] || { threatLevel: 0, visited: false, notes: [] };
+          return {
+            world: {
+              ...state.world,
+              currentRegion: region,
+              regions: {
+                ...state.world.regions,
+                [region]: { ...existing, visited: true }
+              }
+            }
+          };
+        });
         get().addToLog(`Current region set to ${region}`);
       },
 
       scoutRegion: (region) => {
         set((state) => {
           const current = state.world.factions || {};
-          // slightly reduce a random faction pressure as "scouting intel"
           const keys = Object.keys(current);
+          let worldUpdate: Partial<WorldState> = {};
           if (keys.length > 0) {
             const k = keys[Math.floor(Math.random() * keys.length)];
             const updated = { ...current, [k]: Math.max(0, (current[k] as number) - 10) };
-            return { world: { ...state.world, factions: updated } };
+            worldUpdate.factions = updated;
           }
-          return {};
+          const existing = state.world.regions[region] || { threatLevel: 0, visited: false, notes: [] };
+          worldUpdate.regions = {
+            ...state.world.regions,
+            [region]: { ...existing, visited: true, threatLevel: Math.max(0, existing.threatLevel - 5) }
+          };
+          return { world: { ...state.world, ...worldUpdate } };
         });
-        get().addToLog(`Scouted ${region}. Threat level reduced slightly.`);
+        get().addToLog(`Scouted ${region}. Marked as visited, threat reduced slightly.`);
       },
 
       rollWorldThreat: () => {
@@ -736,6 +756,58 @@ export const useTTRPGStore = create<TTRPGState>()(
           }
         }));
         get().addToLog(`World Threat: ${threat}`);
+      },
+
+      updateFactionPressure: (faction, value) => {
+        set((state) => ({
+          world: {
+            ...state.world,
+            factions: { ...state.world.factions, [faction]: Math.max(0, Math.min(100, value)) }
+          }
+        }));
+      },
+
+      addFaction: (name) => {
+        const trimmed = name.trim();
+        if (!trimmed) return;
+        set((state) => ({
+          world: {
+            ...state.world,
+            factions: { ...state.world.factions, [trimmed]: 50 }
+          }
+        }));
+        get().addToLog(`Faction added: ${trimmed}`);
+      },
+
+      removeFaction: (name) => {
+        set((state) => {
+          const updated = { ...state.world.factions };
+          delete updated[name];
+          return { world: { ...state.world, factions: updated } };
+        });
+        get().addToLog(`Faction removed: ${name}`);
+      },
+
+      updateRegionNotes: (region, notes) => {
+        set((state) => {
+          const existing = state.world.regions[region] || { threatLevel: 0, visited: false, notes: [] };
+          return {
+            world: {
+              ...state.world,
+              regions: {
+                ...state.world.regions,
+                [region]: { ...existing, notes: notes ? [notes] : [] }
+              }
+            }
+          };
+        });
+      },
+
+      advanceDay: (days = 1) => {
+        set((state) => ({
+          world: { ...state.world, day: state.world.day + days }
+        }));
+        get().addToLog(`Advanced to Day ${get().world.day}`);
       },
 
       // Presets
