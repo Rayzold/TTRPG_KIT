@@ -1,7 +1,7 @@
 // Placeholder for React Bits Particles component
 // Copy from https://reactbits.dev (Particles - TS-TW variant)
 // This is a minimal stub so the app runs. Replace with full component.
-import React from 'react';
+
 
 interface ParticlesProps {
   className?: string;

@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTTRPGStore } from '../../store/useTTRPGStore';
 import { t } from '../../i18n';
-import SpotlightCard from '../ui/SpotlightCard';
 import MagneticButton from '../ui/MagneticButton';
 import BlurText from '../ui/BlurText';
 import Particles from '../ui/Particles';

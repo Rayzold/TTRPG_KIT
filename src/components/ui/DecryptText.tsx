@@ -1,6 +1,6 @@
 // Stub for React Bits DecryptText (hacker-style)
 // Full component from reactbits.dev
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface DecryptTextProps {
   text: string;

@@ -1,6 +1,6 @@
 // Stub for React Bits GradientText
 // Replace with full copy from https://reactbits.dev
-import React from 'react';
+
 
 interface GradientTextProps {
   text: string;

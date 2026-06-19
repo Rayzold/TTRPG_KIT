@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTTRPGStore } from '../../store/useTTRPGStore';
 import { t } from '../../i18n';
 import BlurText from '../ui/BlurText';
@@ -9,7 +8,6 @@ export default function PlotWeather() {
     generateWeather, 
     currentPlotResult, 
     currentWeatherResult,
-    addToLog,
     language
   } = useTTRPGStore();
 

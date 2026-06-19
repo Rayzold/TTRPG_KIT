@@ -1,5 +1,5 @@
 // Simple RotatingText stub inspired by React Bits
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function RotatingText({ texts, className = '' }: { texts: string[]; className?: string }) {
   const [index, setIndex] = useState(0);

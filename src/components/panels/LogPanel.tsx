@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useTTRPGStore } from '../../store/useTTRPGStore';
 import { t } from '../../i18n';
 import Particles from '../ui/Particles';
@@ -22,13 +22,13 @@ export default function LogPanel() {
     ensureLogSession,
   } = useTTRPGStore();
 
-  const [input, setInput] = React.useState('');
-  const [replyTo, setReplyTo] = React.useState<number | null>(null);
-  const [movingEntryId, setMovingEntryId] = React.useState<number | null>(null);
-  const logContainerRef = React.useRef<HTMLDivElement>(null);
+  const [input, setInput] = useState('');
+  const [replyTo, setReplyTo] = useState<number | null>(null);
+  const [movingEntryId, setMovingEntryId] = useState<number | null>(null);
+  const logContainerRef = useRef<HTMLDivElement>(null);
 
   // Ensure sessions exist (handles migration of flat old logs)
-  React.useEffect(() => {
+  useEffect(() => {
     ensureLogSession();
   }, [ensureLogSession]);
 
@@ -120,7 +120,7 @@ export default function LogPanel() {
   };
 
   // Auto-scroll to bottom when new log entries (or session switch) happen
-  React.useEffect(() => {
+  useEffect(() => {
     if (logContainerRef.current) {
       logContainerRef.current.scrollTop = logContainerRef.current.scrollHeight;
     }

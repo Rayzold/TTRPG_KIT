@@ -82,7 +82,7 @@ export interface TTRPGState {
   generateBackstory: (dark?: boolean) => void;
   askOracle: (question?: string) => void;
 
-  rollTable: (type: string) => void;
+  rollTable: (type: string) => string;
   addCustomTableEntry: (type: string, entry: string) => void;
   getCustomTable: (type: string) => string[];
 
@@ -921,7 +921,7 @@ export const useTTRPGStore = create<TTRPGState>()(
 
       exportCampaignBible: () => {
         // Port the full MD bible generation
-        const md = '# TTRPG Campaign Bible\n\n...';
+        // const md = '# TTRPG Campaign Bible\n\n...';
         // download logic
       },
 

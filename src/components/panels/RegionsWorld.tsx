@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTTRPGStore } from '../../store/useTTRPGStore';
 import { t } from '../../i18n';
 import SpotlightCard from '../ui/SpotlightCard';

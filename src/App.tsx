@@ -3,9 +3,7 @@ import { useTTRPGStore } from './store/useTTRPGStore';
 import { t, languages } from './i18n';
 
 // React Bits imports (install via shadcn as per guide)
-import BlurText from './components/ui/BlurText';
 import Aurora from './components/ui/Aurora';
-import SpotlightCard from './components/ui/SpotlightCard';
 import Particles from './components/ui/Particles';
 import GradientText from './components/ui/GradientText';
 import RotatingText from './components/ui/RotatingText'; // stub for fun flavor text

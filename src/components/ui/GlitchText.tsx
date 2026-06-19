@@ -1,6 +1,6 @@
 // Minimal GlitchText stub for React Bits
 // Full version: copy from reactbits.dev
-import React from 'react';
+
 
 interface GlitchTextProps {
   text: string;

@@ -1,7 +1,7 @@
 // InfiniteScroll from React Bits
 // Stub - replace with full from reactbits.dev
 
-import React from 'react';
+
 
 interface InfiniteScrollProps {
   children: React.ReactNode;

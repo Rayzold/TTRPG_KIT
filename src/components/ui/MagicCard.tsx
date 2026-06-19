@@ -2,7 +2,7 @@
 // Copy the full implementation from https://reactbits.dev if needed
 // This is a functional stub
 
-import React from 'react';
+
 
 interface MagicCardProps {
   children: React.ReactNode;
