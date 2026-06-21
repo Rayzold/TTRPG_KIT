@@ -216,6 +216,328 @@ export const MUSIC_DATA: Record<string, any> = {
       { title: 'We Are the Champions', artist: 'Queen', why: 'Classic party victory anthem.', notes: 'Full blast after a major win. Fun for players to sing along.', yt: 'https://www.youtube.com/results?search_query=We+Are+the+Champions+Queen', sp: 'https://open.spotify.com/search/We%20Are%20the%20Champions' },
       { title: 'The Throne Room / End Credits', artist: 'John Williams (Star Wars)', why: 'Triumphant and celebratory finale music.', notes: 'Excellent for awarding treasure or ending a big arc.', yt: 'https://www.youtube.com/results?search_query=Star+Wars+Throne+Room+music', sp: 'https://open.spotify.com/search/Star%20Wars%20Throne%20Room' }
     ]
+  },
+
+  'tribal-rituals': {
+    label: 'Tribal Rituals',
+    icon: '🩸',
+    suggestions: [
+      { title: 'Krigsgaldr', artist: 'Heilung', why: 'Bone-deep ritual energy — shamanic chanting, frame drums, and primal atmosphere.', notes: 'Ancient ruins, druid circles, blood rites. Play loud. Very atmospheric.', yt: 'https://www.youtube.com/results?search_query=Heilung+Krigsgaldr', sp: 'https://open.spotify.com/search/Heilung%20Krigsgaldr' },
+      { title: 'In Maidjan', artist: 'Heilung', why: 'Hypnotic, repetitive shamanic chanting that builds to a primal frenzy.', notes: 'Best for long ritual scenes. Let it loop.', yt: 'https://www.youtube.com/results?search_query=Heilung+In+Maidjan', sp: 'https://open.spotify.com/search/Heilung%20In%20Maidjan' },
+      { title: 'Alfadhirhaiti', artist: 'Heilung', why: 'Ethereal, otherworldly tone — ritual magic being worked.', notes: 'Excellent for the moment magic is channeled or a spirit is summoned.', yt: 'https://www.youtube.com/results?search_query=Heilung+Alfadhirhaiti', sp: 'https://open.spotify.com/search/Heilung%20Alfadhirhaiti' }
+    ]
+  },
+
+  'norse-wilderness': {
+    label: 'Norse Wilderness',
+    icon: '🌲',
+    suggestions: [
+      { title: 'Helvegen', artist: 'Wardruna', why: 'Mournful, ancient Norse folk — the path of the dead, vast northern landscapes.', notes: 'Wilderness travel, Viking settings, funeral pyres. Deeply atmospheric.', yt: 'https://www.youtube.com/results?search_query=Wardruna+Helvegen', sp: 'https://open.spotify.com/search/Wardruna%20Helvegen' },
+      { title: 'Algir - Stien Klarnar', artist: 'Wardruna', why: 'Expansive and meditative Nordic folk.', notes: 'Open landscapes, long overland journeys. Pairs with silence beautifully.', yt: 'https://www.youtube.com/results?search_query=Wardruna+Algir', sp: 'https://open.spotify.com/search/Wardruna%20Algir' },
+      { title: 'Isa', artist: 'Wardruna', why: 'Cold, still — the feeling of frozen wastes and deep winter.', notes: 'Ice environments, Norse winter, tundra exploration.', yt: 'https://www.youtube.com/results?search_query=Wardruna+Isa', sp: 'https://open.spotify.com/search/Wardruna%20Isa' }
+    ]
+  },
+
+  'primitive-raw': {
+    label: 'Primitive & Raw',
+    icon: '🌀',
+    suggestions: [
+      { title: 'Sivunittinni', artist: 'Tanya Tagaq', why: 'Experimental throat singing — primal, disturbing, deeply alien.', notes: 'Horror, spirits, alien encounters. Not for the faint-hearted. Very effective.', yt: 'https://www.youtube.com/results?search_query=Tanya+Tagaq+Sivunittinni', sp: 'https://open.spotify.com/search/Tanya%20Tagaq' },
+      { title: 'Uja', artist: 'Tanya Tagaq', why: 'Raw inuit throat singing — elemental, primal force of nature.', notes: 'Ancient spirits, elemental encounters, wilderness horror.', yt: 'https://www.youtube.com/results?search_query=Tanya+Tagaq+Uja', sp: 'https://open.spotify.com/search/Tanya%20Tagaq%20Uja' }
+    ]
+  },
+
+  'medieval-festival': {
+    label: 'Medieval Festival',
+    icon: '🎪',
+    suggestions: [
+      { title: 'Percussus Sum', artist: 'Corvus Corax', why: 'Driving bagpipes and drums — a medieval festival in full swing.', notes: 'Taverns, fairs, city streets. High energy, impossible not to feel it.', yt: 'https://www.youtube.com/results?search_query=Corvus+Corax+Percussus+Sum', sp: 'https://open.spotify.com/search/Corvus%20Corax%20Percussus%20Sum' },
+      { title: 'Sverker', artist: 'Corvus Corax', why: 'Epic medieval bagpipes and percussion — processional energy.', notes: 'City entrances, tournament openings, market days.', yt: 'https://www.youtube.com/results?search_query=Corvus+Corax+Sverker', sp: 'https://open.spotify.com/search/Corvus%20Corax%20Sverker' },
+      { title: 'Mandu Mandu', artist: 'Corvus Corax', why: 'Hypnotic medieval rhythm with crowd energy.', notes: 'Festival dancing, tavern brawls, rowdy celebrations.', yt: 'https://www.youtube.com/results?search_query=Corvus+Corax+Mandu+Mandu', sp: 'https://open.spotify.com/search/Corvus%20Corax%20Mandu%20Mandu' }
+    ]
+  },
+
+  'mythic-fantasy': {
+    label: 'Mythic Fantasy',
+    icon: '🌌',
+    suggestions: [
+      { title: 'The Host of Seraphim', artist: 'Dead Can Dance', why: 'Haunting, ancient, otherworldly — ancient civilizations and sacred moments.', notes: 'Dream sequences, ancient ruins, divine encounters.', yt: 'https://www.youtube.com/results?search_query=Dead+Can+Dance+Host+of+Seraphim', sp: 'https://open.spotify.com/search/Dead%20Can%20Dance%20Host%20of%20Seraphim' },
+      { title: 'Song of the Stars', artist: 'Dead Can Dance', why: 'Ethereal world music — the music of another age.', notes: 'Ancient civilizations, cosmic mysteries, mythic storytelling.', yt: 'https://www.youtube.com/results?search_query=Dead+Can+Dance+Song+of+the+Stars', sp: 'https://open.spotify.com/search/Dead%20Can%20Dance%20Song%20of%20Stars' },
+      { title: 'Rakim', artist: 'Dead Can Dance', why: 'Middle Eastern meets ethereal — ancient lands and forgotten gods.', notes: 'Desert ruins, ancient temples, mystic journeys.', yt: 'https://www.youtube.com/results?search_query=Dead+Can+Dance+Rakim', sp: 'https://open.spotify.com/search/Dead%20Can%20Dance%20Rakim' }
+    ]
+  },
+
+  'mongolian-steppes': {
+    label: 'Mongolian Steppes',
+    icon: '🐎',
+    suggestions: [
+      { title: 'Epic Throat Singing', artist: 'Huun-Huur-Tu', why: 'Authentic Tuvan throat singing — the sound of the open steppe.', notes: 'Nomads, horse lords, open plains. Meditative and vast.', yt: 'https://www.youtube.com/results?search_query=Huun+Huur+Tu+throat+singing', sp: 'https://open.spotify.com/search/Huun-Huur-Tu' },
+      { title: 'Steppe Riders', artist: 'Batzorig Vaanchig', why: 'Mongolian throat singer with horsehead fiddle — the sound of the steppe.', notes: 'Cavalry movements, nomadic camps, the endless plains.', yt: 'https://www.youtube.com/results?search_query=Batzorig+Vaanchig+throat+singing', sp: 'https://open.spotify.com/search/Batzorig%20Vaanchig' },
+      { title: 'Khoomei / Traditional Works', artist: 'The Mongolian National Ensemble', why: 'Traditional Mongolian folk instruments and overtone singing.', notes: 'General steppe atmosphere, yurt camps, shamanic rituals.', yt: 'https://www.youtube.com/results?search_query=mongolian+throat+singing+traditional', sp: 'https://open.spotify.com/search/mongolian%20throat%20singing' }
+    ]
+  },
+
+  'historical-crusades': {
+    label: 'Historical Crusades',
+    icon: '✝️',
+    suggestions: [
+      { title: 'Mel Obscurum', artist: 'Tabernis', why: 'Medieval vocal polyphony — the sound of religious orders and pilgrimage roads.', notes: 'Religious orders, pilgrimages, crusader marches.', yt: 'https://www.youtube.com/results?search_query=Tabernis+Mel+Obscurum', sp: 'https://open.spotify.com/search/Tabernis%20Mel%20Obscurum' },
+      { title: 'Crusade Chants', artist: 'Various Early Music', why: 'Gregorian-influenced chant for holy warriors and religious settings.', notes: 'Monasteries, religious ceremonies, holy quest scenes.', yt: 'https://www.youtube.com/results?search_query=crusade+medieval+chant+music', sp: 'https://open.spotify.com/search/crusade%20medieval%20chant' }
+    ]
+  },
+
+  'elven-realms': {
+    label: 'Elven Realms',
+    icon: '🌿',
+    suggestions: [
+      { title: 'May It Be', artist: 'Enya', why: 'Ethereal, timeless — the perfect sound of elven grace and ancient beauty.', notes: 'Elven cities, sacred forests, moments of elvish magic.', yt: 'https://www.youtube.com/results?search_query=Enya+May+It+Be', sp: 'https://open.spotify.com/search/Enya%20May%20It%20Be' },
+      { title: 'Orinoco Flow', artist: 'Enya', why: 'Flowing, expansive — journeys through magical landscapes.', notes: 'Enchanted rivers, aerial views, elven exploration.', yt: 'https://www.youtube.com/results?search_query=Enya+Orinoco+Flow', sp: 'https://open.spotify.com/search/Enya%20Orinoco%20Flow' },
+      { title: 'Lothlorien', artist: 'Enya (The Lord of the Rings)', why: 'Pure elven atmosphere — ancient, serene, otherworldly.', notes: 'Elven sanctuaries, meeting elven royalty, sacred groves.', yt: 'https://www.youtube.com/results?search_query=Enya+Lothlorien+LOTR', sp: 'https://open.spotify.com/search/Enya%20Lothlorien' }
+    ]
+  },
+
+  'dark-dungeons': {
+    label: 'Dark Dungeons',
+    icon: '🕳️',
+    suggestions: [
+      { title: 'Heresy', artist: 'Lustmord', why: 'Deep, oppressive dark ambient — the weight of ancient stone and absolute darkness.', notes: 'Deep dungeons, Underdark, horror. Play very quietly in the background.', yt: 'https://www.youtube.com/results?search_query=Lustmord+Heresy+dark+ambient', sp: 'https://open.spotify.com/search/Lustmord%20Heresy' },
+      { title: 'The Place Where the Black Stars Hang', artist: 'Lustmord', why: 'Cosmic void ambient — ancient evil that predates memory.', notes: 'Eldritch locations, void portals, deep dungeon descents.', yt: 'https://www.youtube.com/results?search_query=Lustmord+Black+Stars+Hang', sp: 'https://open.spotify.com/search/Lustmord%20Black%20Stars' },
+      { title: 'Dark Ambient Dungeon', artist: 'Lustmord', why: 'Hour-long dark ambient — subterranean dread.', notes: 'Extended dungeon crawl background. Set to very low volume.', yt: 'https://www.youtube.com/results?search_query=Lustmord+dark+ambient+1+hour', sp: 'https://open.spotify.com/search/Lustmord' }
+    ]
+  },
+
+  'strange-acoustics': {
+    label: 'Strange Acoustics',
+    icon: '🔮',
+    suggestions: [
+      { title: 'Experimental Ambient Works', artist: 'Akumu', why: 'Disorienting experimental ambient — wrong magic, the fabric of reality bending.', notes: 'Weird magic, aberrations, dream realms, psionic encounters.', yt: 'https://www.youtube.com/results?search_query=Akumu+experimental+ambient', sp: 'https://open.spotify.com/search/Akumu%20ambient' },
+      { title: 'Liminal Spaces', artist: 'Akumu', why: 'Ambient dread with unusual sound design.', notes: 'Transition zones between planes, psychic disturbances, unreliable reality.', yt: 'https://www.youtube.com/results?search_query=Akumu+liminal+ambient', sp: 'https://open.spotify.com/search/Akumu%20liminal' }
+    ]
+  },
+
+  'historical-fantasy': {
+    label: 'Historical Fantasy',
+    icon: '🏰',
+    suggestions: [
+      { title: 'La Folia', artist: 'Jordi Savall / Hesperion XXI', why: 'Baroque early music — noble courts and castle intrigue at their most elegant.', notes: 'Noble courts, castles, historical campaigns, political intrigue.', yt: 'https://www.youtube.com/results?search_query=Jordi+Savall+La+Folia', sp: 'https://open.spotify.com/search/Jordi%20Savall%20La%20Folia' },
+      { title: 'Al-Andalus works', artist: 'Jordi Savall', why: 'Medieval Spanish/Moorish music — Mediterranean fantasy kingdoms.', notes: 'Multicultural cities, merchant courts, scholarly orders.', yt: 'https://www.youtube.com/results?search_query=Jordi+Savall+Al+Andalus', sp: 'https://open.spotify.com/search/Jordi%20Savall%20Al%20Andalus' },
+      { title: 'Celtic Viol Works', artist: 'Hesperion XXI', why: 'Refined early music with fantasy depth.', notes: 'Historical roleplay, bardic colleges, noble feasts.', yt: 'https://www.youtube.com/results?search_query=Hesperion+XXI+early+music', sp: 'https://open.spotify.com/search/Hesperion%20XXI' }
+    ]
+  },
+
+  'medieval-authentic': {
+    label: 'Medieval Authenticity',
+    icon: '📜',
+    suggestions: [
+      { title: 'Historical Performance Works', artist: 'Ensemble Syntagma', why: 'Authentic medieval performance — the real sound of the Middle Ages.', notes: 'Kingdoms, monasteries, courtly intrigue. Period-accurate feel.', yt: 'https://www.youtube.com/results?search_query=Ensemble+Syntagma+medieval', sp: 'https://open.spotify.com/search/Ensemble%20Syntagma' },
+      { title: 'Medieval Dance Music', artist: 'Ensemble Syntagma', why: 'Authentic period dance music for feasts and celebrations.', notes: 'Banquets, courtly dances, noble celebrations.', yt: 'https://www.youtube.com/results?search_query=Ensemble+Syntagma+dance+music', sp: 'https://open.spotify.com/search/Ensemble%20Syntagma%20dance' }
+    ]
+  },
+
+  'rustic-village': {
+    label: 'Rustic Villages',
+    icon: '🏘️',
+    suggestions: [
+      { title: 'Folk Songs & Dances', artist: 'Vox Vulgaris', why: 'Earthy, lively medieval folk — markets, common folk, village life.', notes: 'Markets, taverns, common folk life. Very approachable energy.', yt: 'https://www.youtube.com/results?search_query=Vox+Vulgaris+medieval+folk', sp: 'https://open.spotify.com/search/Vox%20Vulgaris' },
+      { title: 'Village Celebrations', artist: 'Vox Vulgaris', why: 'Rowdy, communal folk music for festival days.', notes: 'Village festivals, harvest celebrations, communal gatherings.', yt: 'https://www.youtube.com/results?search_query=Vox+Vulgaris+folk+songs', sp: 'https://open.spotify.com/search/Vox%20Vulgaris%20folk' }
+    ]
+  },
+
+  'mystical-exploration': {
+    label: 'Mystical Exploration',
+    icon: '✨',
+    suggestions: [
+      { title: 'Sitala', artist: 'Alio Die', why: 'Slow, deep ambient — discovery in magical and ancient places.', notes: 'Exploration, magical forests, lost ruins, meditative travel.', yt: 'https://www.youtube.com/results?search_query=Alio+Die+Sitala', sp: 'https://open.spotify.com/search/Alio%20Die' },
+      { title: 'Hollow Invocation', artist: 'Alio Die', why: 'Resonant drone ambient — the hum of ancient ley lines.', notes: 'Ley lines, ancient magic, sacred sites.', yt: 'https://www.youtube.com/results?search_query=Alio+Die+ambient', sp: 'https://open.spotify.com/search/Alio%20Die%20ambient' }
+    ]
+  },
+
+  'cosmic-mystery': {
+    label: 'Cosmic Mystery',
+    icon: '👁️',
+    suggestions: [
+      { title: 'Primeval', artist: 'Voice of Eye', why: 'Experimental ambient — the sound of ancient secrets and eldritch discovery.', notes: 'Ancient secrets, eldritch locations, Far Realm, void magic.', yt: 'https://www.youtube.com/results?search_query=Voice+of+Eye+Primeval+ambient', sp: 'https://open.spotify.com/search/Voice%20of%20Eye' },
+      { title: 'Transmissions', artist: 'Voice of Eye', why: 'Unsettling, alien ambient textures for the truly unknowable.', notes: 'Mind Flayers, ancient evils, cosmic horror encounters.', yt: 'https://www.youtube.com/results?search_query=Voice+of+Eye+Transmissions', sp: 'https://open.spotify.com/search/Voice%20of%20Eye%20Transmissions' }
+    ]
+  },
+
+  'dreamlike-travel': {
+    label: 'Dreamlike Travel',
+    icon: '🌙',
+    suggestions: [
+      { title: 'The Drift', artist: 'Tuu', why: 'Ambient world music — long journeys that feel like memories.', notes: 'Long journeys, meditation scenes, traveling between scenes.', yt: 'https://www.youtube.com/results?search_query=Tuu+The+Drift+ambient', sp: 'https://open.spotify.com/search/Tuu%20ambient' },
+      { title: 'Mesh', artist: 'Tuu', why: 'Layered ambient folk — the feeling of distance and movement.', notes: 'Montage-style travel, time skips, dreamscapes.', yt: 'https://www.youtube.com/results?search_query=Tuu+Mesh+ambient+world', sp: 'https://open.spotify.com/search/Tuu%20Mesh' }
+    ]
+  },
+
+  'haunted-locations': {
+    label: 'Haunted Locations',
+    icon: '👻',
+    suggestions: [
+      { title: 'Dark Ambient Works', artist: 'Velehentor', why: 'Medieval dungeon synth darkness — the sound of cursed and forgotten places.', notes: 'Crypts, cursed lands, haunted manors, lingering evil.', yt: 'https://www.youtube.com/results?search_query=Velehentor+dark+ambient', sp: 'https://open.spotify.com/search/Velehentor' },
+      { title: 'Dungeon Synth Atmospheres', artist: 'Velehentor', why: 'Oppressive, cold atmosphere for places where death lingers.', notes: 'Undead encounters, haunted ruins, ghost-heavy scenes.', yt: 'https://www.youtube.com/results?search_query=Velehentor+dungeon+synth', sp: 'https://open.spotify.com/search/Velehentor%20dungeon' }
+    ]
+  },
+
+  'feywild': {
+    label: 'Feywild Wanderings',
+    icon: '🧚',
+    suggestions: [
+      { title: 'Psychedelic Folk Works', artist: 'Fursaxa', why: 'Psychedelic folk — the enchanted strangeness of the Feywild.', notes: 'Fey realms, enchanted woods, fairy courts, wild magic zones.', yt: 'https://www.youtube.com/results?search_query=Fursaxa+psychedelic+folk', sp: 'https://open.spotify.com/search/Fursaxa' },
+      { title: 'Lepidoptera', artist: 'Fursaxa', why: 'Hazy, dreamlike folk — beauty and danger intertwined.', notes: 'Pixie encounters, hag lairs with beauty, eerie fey spaces.', yt: 'https://www.youtube.com/results?search_query=Fursaxa+Lepidoptera', sp: 'https://open.spotify.com/search/Fursaxa%20Lepidoptera' }
+    ]
+  },
+
+  'folk-horror': {
+    label: 'Folk Horror',
+    icon: '🌾',
+    suggestions: [
+      { title: 'Dark Folk Works', artist: 'Sharron Kraus', why: 'Unsettling dark folk — witch covens and remote village dread.', notes: 'Witch covens, remote villages, old religions, folk horror.', yt: 'https://www.youtube.com/results?search_query=Sharron+Kraus+dark+folk', sp: 'https://open.spotify.com/search/Sharron%20Kraus' },
+      { title: 'Songs from the Hillside', artist: 'Sharron Kraus', why: 'Eerie English folk — the uncanny in the pastoral.', notes: 'Cursed countryside, pagan traditions, isolated communities.', yt: 'https://www.youtube.com/results?search_query=Sharron+Kraus+songs+hillside', sp: 'https://open.spotify.com/search/Sharron%20Kraus%20songs' }
+    ]
+  },
+
+  'mythic-storytelling': {
+    label: 'Mythic Storytelling',
+    icon: '📖',
+    suggestions: [
+      { title: 'Psychedelic Folk Works', artist: 'Fern Knight', why: 'Dreamy, layered psychedelic folk — legends being told around a fire.', notes: 'Legends, prophetic dreams, bardic performances, ancient tales.', yt: 'https://www.youtube.com/results?search_query=Fern+Knight+psychedelic+folk', sp: 'https://open.spotify.com/search/Fern%20Knight' },
+      { title: 'Quill', artist: 'Fern Knight', why: 'Ethereal and narrative folk music.', notes: 'Oral history moments, revealing ancient truths, quest origins.', yt: 'https://www.youtube.com/results?search_query=Fern+Knight+Quill', sp: 'https://open.spotify.com/search/Fern%20Knight%20Quill' }
+    ]
+  },
+
+  'classic-fantasy': {
+    label: 'Classic Fantasy',
+    icon: '🗡️',
+    suggestions: [
+      { title: 'Basket of Light', artist: 'Pentangle', why: 'British folk — traditional fantasy adventures, roads, and old tales.', notes: 'Traditional fantasy, roads less traveled, folk heroes.', yt: 'https://www.youtube.com/results?search_query=Pentangle+Basket+of+Light', sp: 'https://open.spotify.com/search/Pentangle%20Basket%20of%20Light' },
+      { title: 'Light Flight', artist: 'Pentangle', why: 'Lively, skilled folk music — adventurers on the road.', notes: 'Upbeat overland travel, happy returns, light adventures.', yt: 'https://www.youtube.com/results?search_query=Pentangle+Light+Flight', sp: 'https://open.spotify.com/search/Pentangle%20Light%20Flight' }
+    ]
+  },
+
+  'dungeon-synth-ruins': {
+    label: 'Ruined Kingdoms',
+    icon: '🏚️',
+    suggestions: [
+      { title: 'Dungeon Synth Works', artist: 'Old Tower', why: 'Classic dungeon synth — exploration of forgotten kingdoms and hex crawls.', notes: 'Exploration, hex crawls, abandoned settlements, quiet ruins.', yt: 'https://www.youtube.com/results?search_query=Old+Tower+dungeon+synth', sp: 'https://open.spotify.com/search/Old%20Tower%20dungeon%20synth' },
+      { title: 'The Watcher', artist: 'Old Tower', why: 'Lonely, cold dungeon synth atmosphere.', notes: 'Watching patrols, keeping vigil in cursed lands.', yt: 'https://www.youtube.com/results?search_query=Old+Tower+The+Watcher', sp: 'https://open.spotify.com/search/Old%20Tower%20Watcher' }
+    ]
+  },
+
+  'dungeon-synth-halls': {
+    label: 'Forgotten Halls',
+    icon: '🚪',
+    suggestions: [
+      { title: 'Dungeon Delving Ambient', artist: 'Dim', why: 'Atmospheric dungeon synth — dark halls and ancient doors.', notes: 'Dungeon delving, corridor crawls, dungeon exploration.', yt: 'https://www.youtube.com/results?search_query=Dim+dungeon+synth', sp: 'https://open.spotify.com/search/Dim%20dungeon%20synth' }
+    ]
+  },
+
+  'dungeon-synth-castles': {
+    label: 'Dark Castles',
+    icon: '🏯',
+    suggestions: [
+      { title: 'Fortress Works', artist: 'Cimerion', why: 'Dungeon synth for evil strongholds and dark lords.', notes: 'Evil strongholds, villain lairs, dark towers.', yt: 'https://www.youtube.com/results?search_query=Cimerion+dungeon+synth', sp: 'https://open.spotify.com/search/Cimerion%20dungeon%20synth' }
+    ]
+  },
+
+  'dungeon-synth-tombs': {
+    label: 'Ancient Tombs',
+    icon: '⚰️',
+    suggestions: [
+      { title: 'Necropolis Works', artist: 'Oublieth', why: 'Deep, cold dungeon synth — crypts and the long-dead.', notes: 'Crypts, necropolises, undead encounters, silent tombs.', yt: 'https://www.youtube.com/results?search_query=Oublieth+dungeon+synth', sp: 'https://open.spotify.com/search/Oublieth%20dungeon%20synth' }
+    ]
+  },
+
+  'dungeon-synth-frontier': {
+    label: 'Lonely Frontiers',
+    icon: '🌄',
+    suggestions: [
+      { title: 'Borderlands', artist: 'Fog Castle', why: 'Melancholic dungeon synth — the lonely edge of the known world.', notes: 'Wilderness travel, borderlands, frontier settlements, isolation.', yt: 'https://www.youtube.com/results?search_query=Fog+Castle+dungeon+synth', sp: 'https://open.spotify.com/search/Fog%20Castle%20dungeon%20synth' }
+    ]
+  },
+
+  'medieval-metal': {
+    label: 'Medieval Metal Twist',
+    icon: '🤘',
+    suggestions: [
+      { title: 'Sabbatum (Black Sabbath Medieval Covers)', artist: 'Rondellus', why: 'Black Sabbath covers performed in authentic medieval style — surprisingly perfect.', notes: 'Taverns, light-hearted adventures, moments of levity. Great conversation starter.', yt: 'https://www.youtube.com/results?search_query=Rondellus+Sabbatum+medieval+Black+Sabbath', sp: 'https://open.spotify.com/search/Rondellus%20Sabbatum' },
+      { title: 'War Pigs (Medieval)', artist: 'Rondellus', why: 'Instantly recognizable but completely transformed — players love it.', notes: 'Humorous battlefield moments, meta fun, tavern singalongs.', yt: 'https://www.youtube.com/results?search_query=Rondellus+War+Pigs+medieval', sp: 'https://open.spotify.com/search/Rondellus%20War%20Pigs' }
+    ]
+  },
+
+  'epic-combat-conan': {
+    label: 'Epic Combat',
+    icon: '🔥',
+    suggestions: [
+      { title: 'Anvil of Crom', artist: 'Basil Poledouris (Conan the Barbarian)', why: 'Pure orchestral fantasy combat power — the definitive heroic charge.', notes: 'Boss battles, heroic charges, moments of legendary might.', yt: 'https://www.youtube.com/results?search_query=Anvil+of+Crom+Conan+Barbarian', sp: 'https://open.spotify.com/search/Anvil%20of%20Crom%20Conan' },
+      { title: 'Riddle of Steel / Riders of Doom', artist: 'Basil Poledouris', why: 'Menacing orchestral fantasy — building to inevitable violent conflict.', notes: 'Enemy approaches, tense standoffs before combat.', yt: 'https://www.youtube.com/results?search_query=Riddle+of+Steel+Riders+of+Doom+Conan', sp: 'https://open.spotify.com/search/Riddle%20of%20Steel%20Conan' },
+      { title: 'Battle of the Mounds', artist: 'Basil Poledouris', why: 'Savage, triumphant — the hero victorious against all odds.', notes: 'Climactic battles, last stands, pyrrhic victories.', yt: 'https://www.youtube.com/results?search_query=Battle+of+the+Mounds+Conan', sp: 'https://open.spotify.com/search/Battle%20of%20the%20Mounds%20Conan' }
+    ]
+  },
+
+  'playlist-tavern': {
+    label: '🍺 Tavern Playlist',
+    icon: '🎶',
+    suggestions: [
+      { title: 'Percussus Sum', artist: 'Corvus Corax', why: 'Driving medieval bagpipes — instant tavern energy.', notes: 'Play first to set the mood.', yt: 'https://www.youtube.com/results?search_query=Corvus+Corax+Percussus+Sum', sp: 'https://open.spotify.com/search/Corvus%20Corax' },
+      { title: 'Folk Songs', artist: 'Vox Vulgaris', why: 'Earthy, common folk music for the common room.', notes: 'Background conversation filler.', yt: 'https://www.youtube.com/results?search_query=Vox+Vulgaris+medieval+folk', sp: 'https://open.spotify.com/search/Vox%20Vulgaris' },
+      { title: 'Sabbatum', artist: 'Rondellus', why: 'Medieval metal covers — the weird bard in the corner.', notes: 'Surprise track. Players will notice it.', yt: 'https://www.youtube.com/results?search_query=Rondellus+Sabbatum', sp: 'https://open.spotify.com/search/Rondellus%20Sabbatum' },
+      { title: 'Basket of Light', artist: 'Pentangle', why: 'Classic folk — the traveling bard\'s repertoire.', notes: 'Wind-down drinking music.', yt: 'https://www.youtube.com/results?search_query=Pentangle+Basket+of+Light', sp: 'https://open.spotify.com/search/Pentangle' }
+    ]
+  },
+
+  'playlist-wilderness': {
+    label: '🌲 Wilderness Playlist',
+    icon: '🎶',
+    suggestions: [
+      { title: 'Helvegen', artist: 'Wardruna', why: 'Norse folk for vast landscapes and overland travel.', notes: 'Open roads, long travel montages.', yt: 'https://www.youtube.com/results?search_query=Wardruna+Helvegen', sp: 'https://open.spotify.com/search/Wardruna' },
+      { title: 'May It Be', artist: 'Enya', why: 'Gentle, ethereal — safe travel through beautiful lands.', notes: 'Arriving somewhere new, hopeful moments.', yt: 'https://www.youtube.com/results?search_query=Enya+May+It+Be', sp: 'https://open.spotify.com/search/Enya' },
+      { title: 'The Drift', artist: 'Tuu', why: 'Ambient world music for long journeys that blur together.', notes: 'Time skips and montage travel.', yt: 'https://www.youtube.com/results?search_query=Tuu+ambient+world+music', sp: 'https://open.spotify.com/search/Tuu%20ambient' },
+      { title: 'In Maidjan (lighter tracks)', artist: 'Heilung', why: 'Ritualistic folk for when the wild feels ancient and sacred.', notes: 'Ancient forests, druid groves, primal nature.', yt: 'https://www.youtube.com/results?search_query=Heilung+live+folk', sp: 'https://open.spotify.com/search/Heilung' }
+    ]
+  },
+
+  'playlist-dungeon': {
+    label: '🕳️ Dungeon Playlist',
+    icon: '🎶',
+    suggestions: [
+      { title: 'Heresy', artist: 'Lustmord', why: 'The definitive dungeon track — pure oppressive weight.', notes: 'Very low volume. Background dread.', yt: 'https://www.youtube.com/results?search_query=Lustmord+Heresy', sp: 'https://open.spotify.com/search/Lustmord' },
+      { title: 'Dungeon Synth', artist: 'Old Tower', why: 'Lonely, cold — forgotten halls and empty treasure rooms.', notes: 'Between combat. Quiet exploration.', yt: 'https://www.youtube.com/results?search_query=Old+Tower+dungeon+synth', sp: 'https://open.spotify.com/search/Old%20Tower' },
+      { title: 'Dungeon Ambient', artist: 'Dim', why: 'Simple, effective dungeon synth atmosphere.', notes: 'Corridor crawls, listening at doors.', yt: 'https://www.youtube.com/results?search_query=Dim+dungeon+synth', sp: 'https://open.spotify.com/search/Dim%20dungeon' },
+      { title: 'Borderlands', artist: 'Fog Castle', why: 'Melancholic synth — the lonely dungeon far from help.', notes: 'Resting in the dungeon. Survival tension.', yt: 'https://www.youtube.com/results?search_query=Fog+Castle+dungeon+synth', sp: 'https://open.spotify.com/search/Fog%20Castle' }
+    ]
+  },
+
+  'playlist-horror': {
+    label: '🩸 Horror Playlist',
+    icon: '🎶',
+    suggestions: [
+      { title: 'Sivunittinni', artist: 'Tanya Tagaq', why: 'Primal, visceral — confronting something deeply wrong.', notes: 'Horror reveals, monster encounters.', yt: 'https://www.youtube.com/results?search_query=Tanya+Tagaq', sp: 'https://open.spotify.com/search/Tanya%20Tagaq' },
+      { title: 'Dark Ambient', artist: 'Lustmord', why: 'Cold, ancient dread that fills silences.', notes: 'Horror atmosphere. Paranoia filler.', yt: 'https://www.youtube.com/results?search_query=Lustmord+dark+ambient', sp: 'https://open.spotify.com/search/Lustmord' },
+      { title: 'Transmissions', artist: 'Voice of Eye', why: 'Alien, wrong — eldritch horror atmosphere.', notes: 'Mind Flayers, aberrations, Far Realm.', yt: 'https://www.youtube.com/results?search_query=Voice+of+Eye+ambient', sp: 'https://open.spotify.com/search/Voice%20of%20Eye' },
+      { title: 'Experimental Ambient', artist: 'Akumu', why: 'Reality-bending — things the players cannot explain.', notes: 'Impossible architecture, psychic horror.', yt: 'https://www.youtube.com/results?search_query=Akumu+experimental+ambient', sp: 'https://open.spotify.com/search/Akumu%20ambient' }
+    ]
+  },
+
+  'playlist-boss': {
+    label: '👹 Boss Battle Playlist',
+    icon: '🎶',
+    suggestions: [
+      { title: 'Anvil of Crom', artist: 'Basil Poledouris', why: 'The heroic charge. Nothing beats it for a boss entrance.', notes: 'Play at max volume at boss reveal.', yt: 'https://www.youtube.com/results?search_query=Anvil+of+Crom+Conan', sp: 'https://open.spotify.com/search/Anvil%20of%20Crom' },
+      { title: 'Krigsgaldr', artist: 'Heilung', why: 'Shamanic rage — the boss as ancient primal force.', notes: 'Druidic bosses, ancient evils, primal monsters.', yt: 'https://www.youtube.com/results?search_query=Heilung+Krigsgaldr', sp: 'https://open.spotify.com/search/Heilung%20Krigsgaldr' },
+      { title: 'Helvegen (Percussive Version)', artist: 'Wardruna', why: 'The boss fight as an elegy — fighting destiny itself.', notes: 'Emotional boss fights, tragic villains.', yt: 'https://www.youtube.com/results?search_query=Wardruna+Helvegen+full', sp: 'https://open.spotify.com/search/Wardruna%20Helvegen' }
+    ]
+  },
+
+  'playlist-fey': {
+    label: '🧚 Elven / Fey Playlist',
+    icon: '🎶',
+    suggestions: [
+      { title: 'May It Be', artist: 'Enya', why: 'Pure elven grace — arrivals, farewells, ancient beauty.', notes: 'Elven NPC scenes, sacred moments.', yt: 'https://www.youtube.com/results?search_query=Enya+May+It+Be', sp: 'https://open.spotify.com/search/Enya%20May%20It%20Be' },
+      { title: 'Psychedelic Folk', artist: 'Fursaxa', why: 'The strangeness of the Feywild — beautiful and wrong.', notes: 'Fey courts, enchanted woods.', yt: 'https://www.youtube.com/results?search_query=Fursaxa+folk', sp: 'https://open.spotify.com/search/Fursaxa' },
+      { title: 'Quill', artist: 'Fern Knight', why: 'Dreamy folk storytelling — elven lore and legend.', notes: 'Ancient elven history scenes.', yt: 'https://www.youtube.com/results?search_query=Fern+Knight+music', sp: 'https://open.spotify.com/search/Fern%20Knight' },
+      { title: 'The Host of Seraphim', artist: 'Dead Can Dance', why: 'Timeless, ethereal — the Feywild at its most mythic.', notes: 'Archfey encounters, powerful elven magic.', yt: 'https://www.youtube.com/results?search_query=Dead+Can+Dance+Host+Seraphim', sp: 'https://open.spotify.com/search/Dead%20Can%20Dance' }
+    ]
   }
 };
 
